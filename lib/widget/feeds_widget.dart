@@ -66,7 +66,7 @@ class FeedsWidget extends StatelessWidget {
                     color: Colors.red,
                     size: 28,
                   ),
-                  imageUrl: 'https://i.ibb.co/vwB46Yq/shoes.png',
+                  imageUrl: 'https://static.wikia.nocookie.net/loveinterest/images/7/73/Sanji_im_Alter_von_21_Jahren_auf_dem_Sabaody-Archipel.jpg/revision/latest/thumbnail/width/360/height/450?cb=20180902235218',
                   boxFit: BoxFit.fill,
                 ),
               ),

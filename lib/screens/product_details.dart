@@ -85,7 +85,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   itemBuilder: (BuildContext context, int index) {
                     return FancyShimmerImage(
                       width: double.infinity,
-                      imageUrl: "https://i.ibb.co/vwB46Yq/shoes.png",
+                      imageUrl: "https://upload.wikimedia.org/wikipedia/fi/4/48/Sanji.png",
                       boxFit: BoxFit.fill,
                     );
                   },

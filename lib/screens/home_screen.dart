@@ -2,7 +2,9 @@ import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:flutter_shop/consts/global_colors.dart';
+import 'package:flutter_shop/screens/categories_screen.dart';
 import 'package:flutter_shop/screens/feed_screen.dart';
+import 'package:flutter_shop/screens/users_screen.dart';
 import 'package:flutter_shop/widget/appbar_icons.dart';
 import 'package:flutter_shop/widget/feeds_widget.dart';
 import 'package:flutter_shop/widget/sale_widget.dart';
@@ -42,12 +44,28 @@ class _HomeScreenState extends State<HomeScreen> {
             elevation: 4,
             title: const Text('Home'),
             leading: AppBarIcons(
-              function: () {}, // Provide your function here
+              function: () {
+                Navigator.push(
+                  context,
+                  PageTransition(
+                    type: PageTransitionType.rightToLeft,
+                    child: const CategoriesScreen(),
+                  ),
+                );
+              }, // Provide your function here
               icon: IconlyBold.category,
             ),
             actions: [
               AppBarIcons(
-                function: () {}, // Provide your function here
+                function: () {
+                  Navigator.push(
+                  context,
+                  PageTransition(
+                    type: PageTransitionType.rightToLeft,
+                    child: const UsersScreen(),
+                  ),
+                );
+                }, // Provide your function here
                 icon: IconlyBold.user3,
               ),
             ],
@@ -83,6 +101,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         IconlyLight.search,
                         color: lightIconsColor,
                       )),
+                ),
+                SizedBox(
+                  height: 18,
                 ),
                 Expanded(
                   child: SingleChildScrollView(
@@ -151,4 +172,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
