@@ -11,7 +11,7 @@ import '../widget/appbar_icons.dart';
 import '../widget/feeds_grid.dart';
 import '../widget/sale_widget.dart';
 import 'categories_screen.dart';
-import 'feed_screen.dart';
+import 'feeds_screen.dart';
 
 
 //import '../Models/products_model.dart';
@@ -160,7 +160,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       context,
                                       PageTransition(
                                         type: PageTransitionType.rightToLeft,
-                                        child: FeedsScreen(),
+                                        child:const FeedsScreen(),
                                       ),
                                     );
                                   },

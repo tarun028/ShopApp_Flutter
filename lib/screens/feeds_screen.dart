@@ -15,6 +15,7 @@ class _FeedsScreenState extends State<FeedsScreen> {
   List<ProductsModel> productsList = [];
   @override
   void didChangeDependencies() {
+    getProducts();
     super.didChangeDependencies();
   }
 
@@ -33,21 +34,25 @@ class _FeedsScreenState extends State<FeedsScreen> {
         // elevation: 4,
         title: const Text('All Products'),
       ),
-      body:productsList.isEmpty?Container(): GridView.builder(
-          //shrinkWrap: true,
-          //physics: const NeverScrollableScrollPhysics(),
-          itemCount: productsList.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 0.0,
-              mainAxisSpacing: 0.0,
-              childAspectRatio: 0.7),
-          itemBuilder: (ctx, index) {
-            return FeedsWidget(
-              imageUrl: productsList[index].images![0],
-              title: productsList[index].title.toString(),
-            );
-          }),
+      body: productsList.isEmpty
+          ?const Center(
+            child: CircularProgressIndicator(),
+          )
+          : GridView.builder(
+              //shrinkWrap: true,
+              //physics: const NeverScrollableScrollPhysics(),
+              itemCount: productsList.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 0.0,
+                  mainAxisSpacing: 0.0,
+                  childAspectRatio: 0.6),
+              itemBuilder: (ctx, index) {
+                return FeedsWidget(
+                  imageUrl: productsList[index].images![0],
+                  title: productsList[index].title.toString(),
+                );
+              }),
     );
   }
 }

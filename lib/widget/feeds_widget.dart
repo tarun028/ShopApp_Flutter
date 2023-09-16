@@ -67,19 +67,19 @@ class FeedsWidget extends StatelessWidget {
                     color: Colors.red,
                     size: 28,
                   ),
-                  imageUrl: 'https://static.wikia.nocookie.net/loveinterest/images/7/73/Sanji_im_Alter_von_21_Jahren_auf_dem_Sabaody-Archipel.jpg/revision/latest/thumbnail/width/360/height/450?cb=20180902235218',
+                  imageUrl: imageUrl,
                   boxFit: BoxFit.fill,
                 ),
               ),
               const SizedBox(height: 10),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
-                  "Title",
+                  title,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
-                  style: TextStyle(
-                    fontSize: 17,
+                  style:const TextStyle(
+                    fontSize: 15,
                     //  fontFamily: 'Roboto',
                     fontWeight: FontWeight.w700,
                   ),
