@@ -1,14 +1,20 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:flutter_shop/consts/global_colors.dart';
-import 'package:flutter_shop/screens/categories_screen.dart';
-import 'package:flutter_shop/screens/feed_screen.dart';
 import 'package:flutter_shop/screens/users_screen.dart';
-import 'package:flutter_shop/widget/appbar_icons.dart';
-import 'package:flutter_shop/widget/feeds_widget.dart';
-import 'package:flutter_shop/widget/sale_widget.dart';
 import 'package:page_transition/page_transition.dart';
+
+import '../models/products_model.dart';
+import '../consts/global_colors.dart';
+import '../services/api_handler.dart';
+import '../widget/appbar_icons.dart';
+import '../widget/feeds_grid.dart';
+import '../widget/sale_widget.dart';
+import 'categories_screen.dart';
+import 'feed_screen.dart';
+
+
+//import '../Models/products_model.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -19,6 +25,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late TextEditingController _textEditingController;
+  List<ProductsModel> productsList =[];
   @override
   void initState() {
     _textEditingController = TextEditingController();
@@ -31,6 +38,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
     super.dispose();
   }
+  @override
+  void didChangeDependencies() {
+    getProducts();
+    super.didChangeDependencies();
+  }
+ Future<void> getProducts() async{
+    productsList = await APIHandler.getAllProducts(limit: '10');
+
+  setState(() {
+    
+  });
+ }
 
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -149,19 +168,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                         ),
-                        GridView.builder(
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            itemCount: 3,
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 2,
-                                    crossAxisSpacing: 0.0,
-                                    mainAxisSpacing: 0.0,
-                                    childAspectRatio: 0.6),
-                            itemBuilder: (ctx, index) {
-                              return const FeedsWidget();
-                            })
+                        productsList.isEmpty?Container(): FeedsGridWidget(productsList: productsList)
                       ],
                     ),
                   ),

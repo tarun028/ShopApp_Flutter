@@ -18,4 +18,4 @@ class CategoriesModel with ChangeNotifier {
       return CategoriesModel.fromJson(data);
     }).toList();
   }
-}
+} 

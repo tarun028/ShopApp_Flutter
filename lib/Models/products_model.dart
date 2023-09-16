@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import 'categories_model.dart';
 
@@ -29,7 +29,7 @@ class ProductsModel with ChangeNotifier {
     images = json['images'].cast<String>();
   }
   static List<ProductsModel> productsFromSnapshot(List productSnaphot) {
-    // print("data ${productSnaphot[0]}");
+    //print("data ${productSnaphot[0]}");
     return productSnaphot.map((data) {
       return ProductsModel.fromJson(data);
     }).toList();

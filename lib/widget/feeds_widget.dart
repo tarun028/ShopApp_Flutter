@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:flutter_shop/screens/product_details.dart';
 import 'package:page_transition/page_transition.dart';
-
-
 import '../consts/global_colors.dart';
 
 
 class FeedsWidget extends StatelessWidget {
-  const FeedsWidget({Key? key}) : super(key: key);
+  const FeedsWidget({Key? key, required this.title, required this.imageUrl}) : super(key: key);
+  
+
+  final String title, imageUrl;
 
   @override
   Widget build(BuildContext context) {
